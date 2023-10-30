@@ -7,7 +7,12 @@ export const getTrendingFilms = async () => {
   return response.data;
 };
 
-export const getFilmDetails = async (movieId) => {
-    const response = await axios.get(`/movie/${movieId}?api_key=${api_key}`);
-    return response.data;
-  };
+export const getFilmDetails = async movieId => {
+  const response = await axios.get(`/movie/${movieId}?api_key=${api_key}`);
+  return response.data;
+};
+
+export const searchMovies = async query => {
+  const response = await axios.get(`/search/movie?query=${query}&api_key=${api_key}`);
+  return response.data;
+};

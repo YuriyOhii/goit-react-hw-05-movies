@@ -8,13 +8,12 @@ export const Details = ({
     poster_path,
   },
 }) => {
-  
   return (
     <main>
       <div>
         <img
           src={`https://image.tmdb.org/t/p/w300${poster_path}`}
-          alt='Movie poster'
+          alt="Movie poster"
         />
       </div>
       <div>
