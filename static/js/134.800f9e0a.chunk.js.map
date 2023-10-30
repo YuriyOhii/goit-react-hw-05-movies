@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/134.800f9e0a.chunk.js","mappings":"gMACe,SAASA,IACtB,OAAOC,EAAAA,EAAAA,KAAA,OAAAC,SAAK,UACd,C","sources":["pages/Movies.jsx"],"sourcesContent":["\nexport default function Movies() {\n  return <div>Movies</div>;\n}\n"],"names":["Movies","_jsx","children"],"sourceRoot":""}
