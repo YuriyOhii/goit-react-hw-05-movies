@@ -16,7 +16,6 @@ export default function MovieDetails() {
         setIsLoading(true);
         setError(null);
         const details = await getMovieDetails(Number(movieId));
-        console.log(details);
         setDetails(details);
       } catch (error) {
         setError(error);
