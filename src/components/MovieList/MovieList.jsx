@@ -1,7 +1,8 @@
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { Movie } from '../Movie/Movie';
 import { useEffect, useState } from 'react';
 import { searchMovies, getTrendingFilms } from '../../services/api';
+import { PageTitle } from 'components/PageTitle/PageTitle';
 
 export const MovieList = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,14 +10,21 @@ export const MovieList = () => {
   const [params] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const query = params.get('query') ?? '';
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
-    const fetchFilms = async () => {
+    const fetchFilmList = async () => {
       try {
+        if (query === '' && location.pathname !== '/') return;
+        let films = [];
         setIsLoading(true);
         setError(null);
-        const films = await getTrendingFilms();
-        console.log(films);
+        if (location.pathname === '/') {
+          films = await getTrendingFilms();
+        } else {
+          films = await searchMovies(query);
+        }
         setMovies(films.results);
       } catch (error) {
         setError(error);
@@ -24,25 +32,17 @@ export const MovieList = () => {
         setIsLoading(false);
       }
     };
-
-    const searchFilms = async () => {
-      try {
-        setIsLoading(true);
-        setError(null);
-        const films = await searchMovies(query);
-        console.log(films);
-        setMovies(films.results);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    if (query === '') fetchFilms();
-    else searchFilms();
-  }, [query]);
+    fetchFilmList();
+  }, [query, location]);
   return (
     <section>
+      {movies.length > 0 && (
+        <PageTitle>
+          {location.pathname === '/'
+            ? 'The most trending films of the day!'
+            : `Here we are! Films for your request ${query}`}
+        </PageTitle>
+      )}
       <ul>
         {movies.map(el => (
           <li key={el.id}>
