@@ -2,6 +2,7 @@ import { CastMember } from 'components/CastMember/CastMember';
 import { searchMovieCast } from '../../services/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { CastCard, List, Title } from './Cast.styled';
 
 export default function Cast() {
   const { movieId } = useParams();
@@ -29,29 +30,29 @@ export default function Cast() {
 
   return (
     <section>
-      <h2>Movie participaters</h2>
+      <Title>Movie participaters</Title>
       {cast.length > 0 && (
         <>
           <h3>Cast</h3>
-          <ul>
+          <List>
             {cast.map(member => (
-              <li key={member.credit_id}>
+              <CastCard key={member.credit_id}>
                 <CastMember one={member} />
-              </li>
+              </CastCard>
             ))}
-          </ul>
+          </List>
         </>
       )}
       {crew.length > 0 && (
         <>
           <h3>Crew</h3>
-          <ul>
+          <List>
             {crew.map(member => (
-              <li key={member.credit_id}>
+              <CastCard key={member.credit_id}>
                 <CastMember one={member} />
-              </li>
+              </CastCard>
             ))}
-          </ul>
+          </List>
         </>
       )}
       {isLoading && <div>LOADING...</div>}
