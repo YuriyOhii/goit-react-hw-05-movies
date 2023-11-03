@@ -3,6 +3,7 @@ import { searchMovieCast } from '../../services/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CastCard, List, Title } from './Cast.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export default function Cast() {
   const { movieId } = useParams();
@@ -55,7 +56,7 @@ export default function Cast() {
           </List>
         </>
       )}
-      {isLoading && <div>LOADING...</div>}
+      {isLoading && <Loader />}
       {error && (
         <div>
           Something went wrong.. {error.message}. Please, reload the page!

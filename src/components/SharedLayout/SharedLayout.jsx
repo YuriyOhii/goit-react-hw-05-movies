@@ -7,6 +7,7 @@ import {
   Header,
   Container,
 } from './SharedLayout.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export const SharedLayout = () => {
   return (
@@ -26,7 +27,7 @@ export const SharedLayout = () => {
         </Container>
       </Header>
       <Container>
-        <Suspense fallback={<div>LOADING...</div>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </Container>

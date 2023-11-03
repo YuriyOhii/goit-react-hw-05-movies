@@ -3,6 +3,7 @@ import { Movie } from '../Movie/Movie';
 import { useEffect, useState } from 'react';
 import { searchMovies, getTrendingFilms } from '../../services/api';
 import { List, MovieItem, Query, Title } from './MovieList.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export const MovieList = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +52,7 @@ export const MovieList = () => {
           </MovieItem>
         ))}
       </List>
-      {isLoading && <div>LOADING...</div>}
+      {isLoading && <Loader />}
       {error && (
         <div>
           Something went wrong.. {error.message}. Please, reload the page!

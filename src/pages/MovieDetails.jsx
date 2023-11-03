@@ -4,6 +4,7 @@ import { getMovieDetails } from '../services/api';
 import { Details } from '../components/Details/Details';
 import { BackLink, Icon } from 'assets/Backlink';
 import { ExtraInfo } from 'components/ExtraInfo/ExtraInfo';
+import { Loader } from 'components/Loader/Loader';
 export default function MovieDetails() {
   const [details, setDetails] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +35,7 @@ export default function MovieDetails() {
         Back to the filmlist
       </BackLink>
       {details && <Details movie={details} />}
-      {isLoading && <div>LOADING...</div>}
+      {isLoading && <Loader />}
       {error && (
         <div>
           Something went wrong.. {error.message}. Please, reload the page!

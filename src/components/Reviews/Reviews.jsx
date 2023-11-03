@@ -3,6 +3,7 @@ import { searchMovieReviews } from '../../services/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Li, Notification, Title } from './Reviews.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export default function Reviews() {
   const { movieId } = useParams();
@@ -39,7 +40,7 @@ export default function Reviews() {
       ) : (
         <Notification>There is no reviews here!</Notification>
       )}
-      {isLoading && <div>LOADING...</div>}
+      {isLoading && <Loader/>}
       {error && (
         <div>
           Something went wrong.. {error.message}. Please, reload the page!
