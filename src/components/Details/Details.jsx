@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Genre, List, Main, Rating, Title } from './Details.styled';
 
 export const Details = ({
   movie: {
@@ -12,7 +13,7 @@ export const Details = ({
 }) => {
   const defaultImg = 'https://via.placeholder.com/300x450';
   return (
-    <main>
+    <Main>
       <div>
         <img
           src={
@@ -24,23 +25,23 @@ export const Details = ({
         />
       </div>
       <div>
-        <h1>{title}</h1>
+        <Title>{title}</Title>
         <p>
           <b>Overview:</b> {overview}
         </p>
-        <h3>Genres</h3>
-        <ul>
+        <h3>Genres:</h3>
+        <List>
           {genres.map(el => (
-            <li key={el.id}>{el.name}</li>
+            <Genre key={el.id}>{el.name}</Genre>
           ))}
-        </ul>
-        <p>
+        </List>
+        <Rating>
           <b>Rating: </b>
           {vote_average}. <b>Total votes: </b>
           {vote_count}{' '}
-        </p>
+        </Rating>
       </div>
-    </main>
+    </Main>
   );
 };
 

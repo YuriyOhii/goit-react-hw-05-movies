@@ -13,6 +13,7 @@ export const List = styled.ul`
 `;
 
 export const Title = styled.h2`
+  border-top: 2px solid ${({ theme }) => theme.colors.grey};
   text-align: center;
   font-size: 32px;
 `;

@@ -1,8 +1,9 @@
 import { Suspense, useEffect, useState } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetails } from '../services/api';
 import { Details } from '../components/Details/Details';
 import { BackLink, Icon } from 'assets/Backlink';
+import { ExtraInfo } from 'components/ExtraInfo/ExtraInfo';
 export default function MovieDetails() {
   const [details, setDetails] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -39,16 +40,7 @@ export default function MovieDetails() {
           Something went wrong.. {error.message}. Please, reload the page!
         </div>
       )}
-      <section>
-        <ul>
-          <li>
-            <Link to={`/movies/${movieId}/cast`}>Cast</Link>
-          </li>
-          <li>
-            <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
-          </li>
-        </ul>
-      </section>
+      <ExtraInfo />
       <Suspense fallback={<div>LOADING...</div>}>
         <Outlet />
       </Suspense>
