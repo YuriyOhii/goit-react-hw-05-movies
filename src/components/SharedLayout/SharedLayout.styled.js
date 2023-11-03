@@ -18,13 +18,27 @@ export const Link = styled(NavLink)`
 `;
 
 export const LinkList = styled.ul`
-  height: 40px;
-  padding: ${({ theme }) => theme.spacing(1)};
+  height: 60px;
+  padding-top: ${({ theme }) => theme.spacing(5)};
+  padding-bottom: ${({ theme }) => theme.spacing(1)};
+  padding-left: ${({ theme }) => theme.spacing(3)};
   display: flex;
   gap: ${({ theme }) => theme.spacing(5)};
+`;
+
+export const Container = styled.div`
+  padding-left: ${({ theme }) => theme.spacing(4)};
+  padding-right: ${({ theme }) => theme.spacing(3)};
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const LinkItem = styled.li`
   list-style: none;
   min-width: 80px;
+`;
+
+export const Header = styled.header`
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 3px;
 `;

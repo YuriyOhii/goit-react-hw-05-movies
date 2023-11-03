@@ -2,7 +2,7 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { Movie } from '../Movie/Movie';
 import { useEffect, useState } from 'react';
 import { searchMovies, getTrendingFilms } from '../../services/api';
-import { PageTitle } from 'components/PageTitle/PageTitle';
+import { Query } from './MovieList.styled';
 
 export const MovieList = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -36,13 +36,15 @@ export const MovieList = () => {
   }, [query, location]);
   return (
     <section>
-      {movies.length > 0 && (
-        <PageTitle>
-          {location.pathname === '/'
-            ? 'The most trending films of the day!'
-            : `Here we are! Films for your request ${query}`}
-        </PageTitle>
-      )}
+      {movies.length > 0 ? (
+        location.pathname === '/' ? (
+          <h1>The most trending films of the day!</h1>
+        ) : (
+          <h1>
+            Here we are! Films for your request: <Query>{query}</Query>
+          </h1>
+        )
+      ) : null}
       <ul>
         {movies.map(el => (
           <li key={el.id}>

@@ -3,7 +3,7 @@ import 'modern-normalize';
 
 export const GlobalStyles = createGlobalStyle`
     body {
-  margin: 20px;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -14,5 +14,10 @@ export const GlobalStyles = createGlobalStyle`
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 `;
