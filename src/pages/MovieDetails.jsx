@@ -37,8 +37,12 @@ export default function MovieDetails() {
       )}
       <section>
         <ul>
-          <li><Link to={`/movies/${movieId}/cast`}>Cast</Link></li>
-          <li><Link to={`/movies/${movieId}/reviews`}>Reviews</Link></li>
+          <li>
+            <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+          </li>
+          <li>
+            <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+          </li>
         </ul>
       </section>
       <Suspense fallback={<div>LOADING...</div>}>

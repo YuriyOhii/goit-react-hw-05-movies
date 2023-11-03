@@ -54,7 +54,7 @@ export default function Cast() {
           </ul>
         </>
       )}
-       {isLoading && <div>LOADING...</div>}
+      {isLoading && <div>LOADING...</div>}
       {error && (
         <div>
           Something went wrong.. {error.message}. Please, reload the page!

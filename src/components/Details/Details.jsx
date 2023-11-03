@@ -8,11 +8,17 @@ export const Details = ({
     poster_path,
   },
 }) => {
+  const defaultImg = 'https://via.placeholder.com/300x450';
+
   return (
     <main>
       <div>
         <img
-          src={`https://image.tmdb.org/t/p/w300${poster_path}`}
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w300${poster_path}`
+              : defaultImg
+          }
           alt="Movie poster"
         />
       </div>

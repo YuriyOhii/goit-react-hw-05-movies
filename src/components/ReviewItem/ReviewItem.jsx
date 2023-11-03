@@ -1,5 +1,3 @@
 export const ReviewItem = ({}) => {
-    return (
-        <div>review Item</div>
-    )
-}
+  return <div>review Item</div>;
+};
