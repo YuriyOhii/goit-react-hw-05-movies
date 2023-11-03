@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 
 import { HiOutlineSearch } from 'react-icons/hi';
+import { Form } from './SearchForm.styled';
 export const SearchForm = () => {
   const [params, setParams] = useSearchParams();
 
@@ -14,11 +15,11 @@ export const SearchForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <input type="text" name="query" />
       <button type="submit">
         <HiOutlineSearch />
       </button>
-    </form>
+    </Form>
   );
 };

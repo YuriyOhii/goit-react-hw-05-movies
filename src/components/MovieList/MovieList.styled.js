@@ -17,3 +17,8 @@ export const List = styled.ul`
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: ${({ theme }) => theme.spacing(2)};
 `;
+
+export const Title = styled.h1`
+  text-align: center;
+  font-size: 30px;
+`;
