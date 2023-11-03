@@ -2,6 +2,7 @@ import { ReviewItem } from '../ReviewItem/ReviewItem';
 import { searchMovieReviews } from '../../services/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Li, Notification, Title } from './Reviews.styled';
 
 export default function Reviews() {
   const { movieId } = useParams();
@@ -26,14 +27,18 @@ export default function Reviews() {
   }, [movieId]);
   return (
     <section>
-      <h2>Movie reviews</h2>
-      <ul>
-        {reviews.map(review => (
-          <li key={review.id}>
-            <ReviewItem review={review} />
-          </li>
-        ))}
-      </ul>
+      <Title>Movie reviews</Title>
+      {reviews.length > 0 ? (
+        <ul>
+          {reviews.map(review => (
+            <Li key={review.id}>
+              <ReviewItem review={review} />
+            </Li>
+          ))}
+        </ul>
+      ) : (
+        <Notification>There is no reviews here!</Notification>
+      )}
       {isLoading && <div>LOADING...</div>}
       {error && (
         <div>

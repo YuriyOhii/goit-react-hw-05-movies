@@ -1,8 +1,10 @@
+import { Card, Wrap } from './ReviewItem.styled';
+
 export const ReviewItem = ({ review: { author, content, updated_at } }) => {
   const date = new Date(updated_at);
   return (
-    <div>
-      <div>
+    <Card>
+      <Wrap>
         <p>
           <b>Author: </b>
           {author}
@@ -11,8 +13,8 @@ export const ReviewItem = ({ review: { author, content, updated_at } }) => {
           <b>Date: </b>
           {date.toDateString()}
         </p>
-      </div>
+      </Wrap>
       <p>{content}</p>
-    </div>
+    </Card>
   );
 };
