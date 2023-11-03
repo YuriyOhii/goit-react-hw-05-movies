@@ -2,7 +2,7 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { Movie } from '../Movie/Movie';
 import { useEffect, useState } from 'react';
 import { searchMovies, getTrendingFilms } from '../../services/api';
-import { Query } from './MovieList.styled';
+import { List, MovieItem, Query } from './MovieList.styled';
 
 export const MovieList = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -45,13 +45,13 @@ export const MovieList = () => {
           </h1>
         )
       ) : null}
-      <ul>
+      <List>
         {movies.map(el => (
-          <li key={el.id}>
+          <MovieItem key={el.id}>
             <Movie film={el} />
-          </li>
+          </MovieItem>
         ))}
-      </ul>
+      </List>
       {isLoading && <div>LOADING...</div>}
       {error && (
         <div>
