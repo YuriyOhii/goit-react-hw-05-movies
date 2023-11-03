@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Card, Wrap } from './ReviewItem.styled';
 
 export const ReviewItem = ({ review: { author, content, updated_at } }) => {
@@ -17,4 +18,11 @@ export const ReviewItem = ({ review: { author, content, updated_at } }) => {
       <p>{content}</p>
     </Card>
   );
+};
+ReviewItem.propTypes = {
+  review: PropTypes.shape({
+    author: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    updated_at: PropTypes.string.isRequired,
+  }),
 };

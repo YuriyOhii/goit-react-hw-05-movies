@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Details = ({
   movie: {
     title,
@@ -9,7 +11,6 @@ export const Details = ({
   },
 }) => {
   const defaultImg = 'https://via.placeholder.com/300x450';
-
   return (
     <main>
       <div>
@@ -41,4 +42,15 @@ export const Details = ({
       </div>
     </main>
   );
+};
+
+Details.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    overview: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.object),
+    vote_average: PropTypes.number,
+    vote_count: PropTypes.number,
+    poster_path: PropTypes.string,
+  }),
 };

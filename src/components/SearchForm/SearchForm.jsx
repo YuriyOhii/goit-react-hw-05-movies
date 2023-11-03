@@ -1,23 +1,24 @@
-import PropTypes from 'prop-types'
+import { useSearchParams } from 'react-router-dom';
 
-import { HiOutlineSearch } from 'react-icons/hi'
-export const SearchForm = ({onSubmit}) => {
+import { HiOutlineSearch } from 'react-icons/hi';
+export const SearchForm = () => {
+  const [params, setParams] = useSearchParams();
 
-const handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     const query = e.target.elements.query.value;
-    onSubmit(query);
-   e.target.reset();
-}
+    const normalizedQuery = query.toLowerCase().trim();
+    params.set('query', normalizedQuery);
+    setParams(params);
+    e.target.reset();
+  };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="query" />
-            <button type="submit"><HiOutlineSearch/></button>
-        </form>
-    )
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="query" />
+      <button type="submit">
+        <HiOutlineSearch />
+      </button>
+    </form>
+  );
 };
-
-SearchForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-}

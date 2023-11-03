@@ -4,7 +4,7 @@ import { getMovieDetails } from '../services/api';
 import { Details } from '../components/Details/Details';
 import { BackLink, Icon } from 'assets/Backlink';
 export default function MovieDetails() {
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { movieId } = useParams();

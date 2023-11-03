@@ -1,5 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { Card, Reference, Title, Wrap } from './Movie.styled';
+import PropTypes from 'prop-types';
+
 export const Movie = ({ film: { title, id, poster_path } }) => {
   const location = useLocation();
   const defaultImg = 'https://via.placeholder.com/200x300';
@@ -23,4 +25,12 @@ export const Movie = ({ film: { title, id, poster_path } }) => {
       </Reference>
     </div>
   );
+};
+
+Movie.propTypes = {
+  film: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    poster_path: PropTypes.string.isRequired,
+  }),
 };

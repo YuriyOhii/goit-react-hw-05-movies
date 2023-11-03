@@ -11,7 +11,6 @@ export const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const query = params.get('query') ?? '';
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     const fetchFilmList = async () => {
