@@ -1,5 +1,5 @@
 export const ReviewItem = ({ review: { author, content, updated_at } }) => {
-  const date = new Date(updated_at)
+  const date = new Date(updated_at);
   return (
     <div>
       <div>

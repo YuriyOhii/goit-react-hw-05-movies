@@ -2,6 +2,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetails } from '../services/api';
 import { Details } from '../components/Details/Details';
+import { BackLink, Icon } from 'assets/Backlink';
 export default function MovieDetails() {
   const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +28,10 @@ export default function MovieDetails() {
   }, [movieId]);
   return (
     <main>
-      <Link to={backLink}>Back to FilmList</Link>
+      <BackLink to={backLink}>
+        <Icon />
+        Back to the filmlist
+      </BackLink>
       {details && <Details movie={details} />}
       {isLoading && <div>LOADING...</div>}
       {error && (
