@@ -9,8 +9,6 @@ export const Loader = () => {
         radius="9"
         color="orange"
         ariaLabel="loading"
-        wrapperStyle
-        wrapperClass
       />
     </Wrap>
   );

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Card, Text, Wrap } from './CastMember.styled';
-export const CastMember = ({ one: { character, name, profile_path, job } }) => {
+export const CastMember = ({ one: { character, name, profile_path } }) => {
   const defaultImg = 'https://via.placeholder.com/200x300';
   return (
     <Card>
@@ -15,7 +15,7 @@ export const CastMember = ({ one: { character, name, profile_path, job } }) => {
         />
       </Wrap>
       <Text>
-        <b>{character ?? job}</b>
+        <b>{character}</b>
       </Text>
       <Text>{name}</Text>
     </Card>
@@ -24,9 +24,8 @@ export const CastMember = ({ one: { character, name, profile_path, job } }) => {
 
 CastMember.propTypes = {
   one: PropTypes.shape({
-    character: PropTypes.string,
+    character: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     profile_path: PropTypes.string,
-    job: PropTypes.string,
   }),
 };

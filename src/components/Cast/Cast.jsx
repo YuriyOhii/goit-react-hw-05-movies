@@ -10,7 +10,6 @@ export default function Cast() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [cast, setCast] = useState([]);
-  const [crew, setCrew] = useState([]);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -19,7 +18,6 @@ export default function Cast() {
         setError(null);
         const details = await searchMovieCast(Number(movieId));
         setCast(details.cast);
-        setCrew(details.crew);
       } catch (error) {
         setError(error);
       } finally {
@@ -37,18 +35,6 @@ export default function Cast() {
           <h3>Cast</h3>
           <List>
             {cast.map(member => (
-              <CastCard key={member.credit_id}>
-                <CastMember one={member} />
-              </CastCard>
-            ))}
-          </List>
-        </>
-      )}
-      {crew.length > 0 && (
-        <>
-          <h3>Crew</h3>
-          <List>
-            {crew.map(member => (
               <CastCard key={member.credit_id}>
                 <CastMember one={member} />
               </CastCard>
